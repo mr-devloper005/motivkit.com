@@ -2,6 +2,8 @@
 
 export const storageKeys = {
   user: 'nexus-user',
+  /** Email + password + name for local-only auth (demo; not for production secrets). */
+  localAccounts: 'nexus-local-accounts',
   bookmarks: 'nexus-bookmarks',
   bookmarkCollections: 'nexus-bookmark-collections',
   articles: 'nexus-articles',

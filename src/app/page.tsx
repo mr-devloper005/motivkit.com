@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Bookmark, Building2, Compass, FileText, Globe2, Image as ImageIcon, LayoutGrid, MapPin, ShieldCheck, Tag, User } from 'lucide-react'
 import { ContentImage } from '@/components/shared/content-image'
-import { NavbarShell } from '@/components/shared/navbar-shell'
+import { HeroSection } from '@/components/home/hero-section'
+import { HeroInlineNav } from '@/components/home/hero-inline-nav'
 import { Footer } from '@/components/shared/footer'
 import { SchemaJsonLd } from '@/components/seo/schema-jsonld'
 import { TaskPostCard } from '@/components/shared/task-post-card'
@@ -152,6 +153,11 @@ function DirectoryHome({ primaryTask, enabledTasks, listingPosts, classifiedPost
 
   return (
     <main>
+      <div className="bg-background px-4 pt-6 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <HeroInlineNav />
+        </div>
+      </div>
       <section className={tone.hero}>
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-18">
           <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
@@ -267,48 +273,39 @@ function DirectoryHome({ primaryTask, enabledTasks, listingPosts, classifiedPost
   )
 }
 
-function EditorialHome({ primaryTask, articlePosts, supportTasks }: { primaryTask?: EnabledTask; articlePosts: SitePost[]; supportTasks: EnabledTask[] }) {
+function EditorialHome({
+  primaryTask,
+  articlePosts,
+  supportTasks,
+  enabledTasks,
+}: {
+  primaryTask?: EnabledTask
+  articlePosts: SitePost[]
+  supportTasks: EnabledTask[]
+  enabledTasks: EnabledTask[]
+}) {
   const tone = getEditorialTone()
   const lead = articlePosts[0]
   const side = articlePosts.slice(1, 5)
+  const heroFromPosts = articlePosts.slice(0, 4).map(getPostImage).filter(Boolean)
+  const heroImages = heroFromPosts.length ? heroFromPosts : ['/placeholder.svg?height=1400&width=2400']
 
   return (
     <main className={tone.shell}>
+      <HeroSection images={heroImages} tasks={enabledTasks} />
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-18">
-        <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
-          <div>
-            <span className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] ${tone.badge}`}>
-              <FileText className="h-3.5 w-3.5" />
-              Reading-first publication
-            </span>
-            <h1 className={`mt-6 max-w-4xl text-5xl font-semibold tracking-[-0.06em] sm:text-6xl ${tone.title}`}>
-              Essays, analysis, and slower reading designed like a publication, not a dashboard.
-            </h1>
-            <p className={`mt-6 max-w-2xl text-base leading-8 ${tone.muted}`}>{SITE_CONFIG.description}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href={primaryTask?.route || '/articles'} className={`inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold ${tone.action}`}>
-                Start reading
-                <ArrowRight className="h-4 w-4" />
+        <aside className={`mx-auto max-w-3xl rounded-[2rem] p-6 lg:max-w-none ${tone.panel}`}>
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] opacity-70">Inside this issue</p>
+          <div className="mt-5 space-y-5">
+            {side.map((post) => (
+              <Link key={post.id} href={`/articles/${post.slug}`} className="block border-b border-black/10 pb-5 last:border-b-0 last:pb-0">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] opacity-60">Feature</p>
+                <h3 className="mt-2 text-xl font-semibold">{post.title}</h3>
+                <p className={`mt-2 text-sm leading-7 ${tone.muted}`}>{post.summary || 'Long-form perspective with a calmer reading rhythm.'}</p>
               </Link>
-              <Link href="/about" className={`inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold ${tone.actionAlt}`}>
-                About the publication
-              </Link>
-            </div>
+            ))}
           </div>
-
-          <aside className={`rounded-[2rem] p-6 ${tone.panel}`}>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] opacity-70">Inside this issue</p>
-            <div className="mt-5 space-y-5">
-              {side.map((post) => (
-                <Link key={post.id} href={`/articles/${post.slug}`} className="block border-b border-black/10 pb-5 last:border-b-0 last:pb-0">
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] opacity-60">Feature</p>
-                  <h3 className="mt-2 text-xl font-semibold">{post.title}</h3>
-                  <p className={`mt-2 text-sm leading-7 ${tone.muted}`}>{post.summary || 'Long-form perspective with a calmer reading rhythm.'}</p>
-                </Link>
-              ))}
-            </div>
-          </aside>
-        </div>
+        </aside>
 
         {lead ? (
           <div className={`mt-12 overflow-hidden rounded-[2.5rem] ${tone.panel}`}>
@@ -349,6 +346,11 @@ function VisualHome({ primaryTask, imagePosts, profilePosts, articlePosts }: { p
 
   return (
     <main className={tone.shell}>
+      <div className="bg-background px-4 pt-6 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <HeroInlineNav />
+        </div>
+      </div>
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-18">
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <div>
@@ -415,6 +417,11 @@ function CurationHome({ primaryTask, bookmarkPosts, profilePosts, articlePosts }
 
   return (
     <main className={tone.shell}>
+      <div className="bg-background px-4 pt-6 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <HeroInlineNav />
+        </div>
+      </div>
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-18">
         <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
           <div>
@@ -517,7 +524,6 @@ export default async function HomePage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <NavbarShell />
       <SchemaJsonLd data={schemaData} />
       {productKind === 'directory' ? (
         <DirectoryHome
@@ -530,7 +536,7 @@ export default async function HomePage() {
         />
       ) : null}
       {productKind === 'editorial' ? (
-        <EditorialHome primaryTask={primaryTask} articlePosts={articlePosts} supportTasks={supportTasks} />
+        <EditorialHome primaryTask={primaryTask} articlePosts={articlePosts} supportTasks={supportTasks} enabledTasks={enabledTasks} />
       ) : null}
       {productKind === 'visual' ? (
         <VisualHome primaryTask={primaryTask} imagePosts={imagePosts} profilePosts={profilePosts} articlePosts={articlePosts} />

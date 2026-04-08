@@ -5,47 +5,9 @@ import { SITE_CONFIG } from '@/lib/site-config'
 import { getFactoryState } from '@/design/factory/get-factory-state'
 import { getProductKind } from '@/design/factory/get-product-kind'
 
-function getTone(kind: ReturnType<typeof getProductKind>) {
-  if (kind === 'directory') {
-    return {
-      shell: 'bg-[#f8fbff] text-slate-950',
-      panel: 'border border-slate-200 bg-white',
-      soft: 'border border-slate-200 bg-slate-50',
-      muted: 'text-slate-600',
-      action: 'bg-slate-950 text-white hover:bg-slate-800',
-    }
-  }
-  if (kind === 'editorial') {
-    return {
-      shell: 'bg-[#fbf6ee] text-[#241711]',
-      panel: 'border border-[#dcc8b7] bg-[#fffdfa]',
-      soft: 'border border-[#e6d6c8] bg-[#fff4e8]',
-      muted: 'text-[#6e5547]',
-      action: 'bg-[#241711] text-[#fff1e2] hover:bg-[#3a241b]',
-    }
-  }
-  if (kind === 'visual') {
-    return {
-      shell: 'bg-[#07101f] text-white',
-      panel: 'border border-white/10 bg-white/6',
-      soft: 'border border-white/10 bg-white/5',
-      muted: 'text-slate-300',
-      action: 'bg-[#8df0c8] text-[#07111f] hover:bg-[#77dfb8]',
-    }
-  }
-  return {
-    shell: 'bg-[#f7f1ea] text-[#261811]',
-    panel: 'border border-[#ddcdbd] bg-[#fffaf4]',
-    soft: 'border border-[#e8dbce] bg-[#f3e8db]',
-    muted: 'text-[#71574a]',
-    action: 'bg-[#5b2b3b] text-[#fff0f5] hover:bg-[#74364b]',
-  }
-}
-
 export default function ContactPage() {
   const { recipe } = getFactoryState()
   const productKind = getProductKind(recipe)
-  const tone = getTone(productKind)
   const lanes =
     productKind === 'directory'
       ? [
@@ -72,33 +34,62 @@ export default function ContactPage() {
             ]
 
   return (
-    <div className={`min-h-screen ${tone.shell}`}>
+    <div className="min-h-screen bg-[linear-gradient(180deg,#fff9f7_0%,#ffece5_100%)] text-[#4A102A]">
       <NavbarShell />
       <main className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <section className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] opacity-70">Contact {SITE_CONFIG.name}</p>
-            <h1 className="mt-4 text-5xl font-semibold tracking-[-0.05em]">A support page that matches the product, not a generic contact form.</h1>
-            <p className={`mt-5 max-w-2xl text-sm leading-8 ${tone.muted}`}>Tell us what you are trying to publish, fix, or launch. We will route it through the right lane instead of forcing every request into the same support bucket.</p>
+            <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(133,25,60,0.22)] bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#85193C] shadow-sm backdrop-blur-sm">
+              <Sparkles className="h-3.5 w-3.5 text-[#C5172E]" aria-hidden />
+              Contact {SITE_CONFIG.name}
+            </div>
+            <h1 className="mt-6 font-display text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">
+              A support page that matches the product, not a generic contact form.
+            </h1>
+            <p className="mt-5 max-w-2xl text-sm leading-8 text-[#85193C]/90">
+              Tell us what you are trying to publish, fix, or launch. We will route it through the right lane instead of forcing every request into the same support bucket.
+            </p>
             <div className="mt-8 space-y-4">
               {lanes.map((lane) => (
-                <div key={lane.title} className={`rounded-[1.6rem] p-5 ${tone.soft}`}>
-                  <lane.icon className="h-5 w-5" />
-                  <h2 className="mt-3 text-xl font-semibold">{lane.title}</h2>
-                  <p className={`mt-2 text-sm leading-7 ${tone.muted}`}>{lane.body}</p>
+                <div
+                  key={lane.title}
+                  className="rounded-[1.6rem] border border-[rgba(133,25,60,0.18)] bg-white/70 p-5 shadow-[0_1px_0_rgba(74,16,42,0.06)] backdrop-blur-sm"
+                >
+                  <lane.icon className="h-5 w-5 text-[#C5172E]" aria-hidden />
+                  <h2 className="mt-3 text-xl font-semibold text-[#4A102A]">{lane.title}</h2>
+                  <p className="mt-2 text-sm leading-7 text-[#85193C]/88">{lane.body}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className={`rounded-[2rem] p-7 ${tone.panel}`}>
-            <h2 className="text-2xl font-semibold">Send a message</h2>
+          <div className="rounded-[2rem] border border-[rgba(133,25,60,0.22)] bg-white/85 p-7 shadow-[0_12px_40px_-20px_rgba(74,16,42,0.35)] backdrop-blur-sm">
+            <h2 className="text-2xl font-semibold text-[#4A102A]">Send a message</h2>
+            <p className="mt-2 text-sm text-[#85193C]/85">We read every note—include links or context when it helps.</p>
             <form className="mt-6 grid gap-4">
-              <input className="h-12 rounded-xl border border-current/10 bg-transparent px-4 text-sm" placeholder="Your name" />
-              <input className="h-12 rounded-xl border border-current/10 bg-transparent px-4 text-sm" placeholder="Email address" />
-              <input className="h-12 rounded-xl border border-current/10 bg-transparent px-4 text-sm" placeholder="What do you need help with?" />
-              <textarea className="min-h-[180px] rounded-2xl border border-current/10 bg-transparent px-4 py-3 text-sm" placeholder="Share the full context so we can respond with the right next step." />
-              <button type="submit" className={`inline-flex h-12 items-center justify-center rounded-full px-6 text-sm font-semibold ${tone.action}`}>Send message</button>
+              <input
+                className="h-12 rounded-xl border border-[rgba(133,25,60,0.22)] bg-white/90 px-4 text-sm text-[#4A102A] placeholder:text-[#85193C]/45 outline-none ring-[#85193C]/30 focus:border-[#85193C]/50 focus:ring-2"
+                placeholder="Your name"
+              />
+              <input
+                className="h-12 rounded-xl border border-[rgba(133,25,60,0.22)] bg-white/90 px-4 text-sm text-[#4A102A] placeholder:text-[#85193C]/45 outline-none ring-[#85193C]/30 focus:border-[#85193C]/50 focus:ring-2"
+                placeholder="Email address"
+                type="email"
+              />
+              <input
+                className="h-12 rounded-xl border border-[rgba(133,25,60,0.22)] bg-white/90 px-4 text-sm text-[#4A102A] placeholder:text-[#85193C]/45 outline-none ring-[#85193C]/30 focus:border-[#85193C]/50 focus:ring-2"
+                placeholder="What do you need help with?"
+              />
+              <textarea
+                className="min-h-[180px] rounded-2xl border border-[rgba(133,25,60,0.22)] bg-white/90 px-4 py-3 text-sm text-[#4A102A] placeholder:text-[#85193C]/45 outline-none ring-[#85193C]/30 focus:border-[#85193C]/50 focus:ring-2"
+                placeholder="Share the full context so we can respond with the right next step."
+              />
+              <button
+                type="submit"
+                className="inline-flex h-12 items-center justify-center rounded-full bg-[#85193C] px-6 text-sm font-semibold text-white shadow-sm transition hover:bg-[#4A102A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FCF259]/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#fff9f7]"
+              >
+                Send message
+              </button>
             </form>
           </div>
         </section>
