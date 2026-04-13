@@ -1,5 +1,5 @@
 import { BRAND_PACKS } from '@/design/factory/brand-packs'
-import { SITE_FACTORY_RECIPE } from '@/config/site.factory'
+import { SITE_FACTORY_RECIPE } from '@/design/factory/site-factory-recipe'
 
 export function getFactoryState() {
   const brandPack = BRAND_PACKS[SITE_FACTORY_RECIPE.brandPack]

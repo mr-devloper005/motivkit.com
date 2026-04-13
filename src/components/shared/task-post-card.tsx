@@ -4,7 +4,7 @@ import { ArrowUpRight, ExternalLink, FileText, Mail, MapPin, Tag } from 'lucide-
 import type { SitePost } from '@/lib/site-connector'
 import { CATEGORY_OPTIONS, normalizeCategory } from '@/lib/categories'
 import type { TaskKey } from '@/lib/site-config'
-import { SITE_THEME } from '@/config/site.theme'
+import { SITE_THEME } from '@/design/theme/site-theme'
 import { getFactoryState } from '@/design/factory/get-factory-state'
 
 type ListingContent = {
