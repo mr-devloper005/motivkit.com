@@ -756,26 +756,50 @@ export const mockTeamMembers: TeamMember[] = [
     id: 'team-1',
     name: 'Avery Brooks',
     role: 'Head of Community',
-    avatar: 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=200&h=200&fit=crop',
-    bio: 'Building programs that connect creators with meaningful collaborations.',
-    location: 'Austin, TX'
+    avatar: 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=400&h=400&fit=crop',
+    bio: 'Programs that connect creators with collaborations that feel human, not algorithmic.',
+    location: 'Austin, TX',
   },
   {
     id: 'team-2',
     name: 'Jordan Lee',
-    role: 'Product Lead',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop',
-    bio: 'Designing calm, curated experiences for modern teams.',
-    location: 'San Francisco, CA'
+    role: 'VP, Product',
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop',
+    bio: 'Champions calm interfaces, evidence-led roadmaps, and teams that ship with empathy.',
+    location: 'San Francisco, CA',
   },
   {
     id: 'team-3',
     name: 'Priya Desai',
-    role: 'Engineering',
-    avatar: 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=200&h=200&fit=crop',
-    bio: 'Focused on reliability, search, and delightful performance.',
-    location: 'New York, NY'
-  }
+    role: 'Principal Engineer',
+    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop',
+    bio: 'Search, reliability, and performance—making large libraries feel instant.',
+    location: 'New York, NY',
+  },
+  {
+    id: 'team-4',
+    name: 'Marcus Chen',
+    role: 'Creative Director',
+    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop',
+    bio: 'Editorial art direction, motion, and typography that reward slow reading.',
+    location: 'Portland, OR',
+  },
+  {
+    id: 'team-5',
+    name: 'Sofia Alvarez',
+    role: 'People & Talent',
+    avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop',
+    bio: 'Designs hiring rituals and onboarding so distributed teams feel anchored from day one.',
+    location: 'Mexico City, MX',
+  },
+  {
+    id: 'team-6',
+    name: 'Noah Ibrahim',
+    role: 'Data & Insights',
+    avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop',
+    bio: 'Turns reader behavior into respectful signals—better recommendations, less noise.',
+    location: 'Toronto, ON',
+  },
 ]
 
 export const mockCommunityEvents: CommunityEvent[] = [
@@ -878,50 +902,65 @@ export const mockFaqs: FAQItem[] = [
 export const mockBlogPosts: BlogPost[] = [
   {
     id: 'blog-1',
-    title: 'Community Notes: March',
-    date: 'Mar 12, 2026',
-    excerpt: 'Highlights from the community, trending collections, and product updates.',
-    tag: 'Updates',
-    author: 'Avery Brooks',
-    readTime: '4 min'
+    title: 'What we shipped in Q1—and what we cut',
+    date: 'Apr 2, 2026',
+    excerpt: 'A candid look at roadmap bets, scope trims, and the features that earned their place.',
+    tag: 'Ship log',
+    author: 'Jordan Lee',
+    readTime: '5 min',
   },
   {
     id: 'blog-2',
-    title: 'Designing for Shared Knowledge',
-    date: 'Feb 28, 2026',
-    excerpt: 'How we think about curation, trust, and discovery in social bookmarking.',
-    tag: 'Design',
-    author: 'Jordan Lee',
-    readTime: '6 min'
+    title: 'The etiquette of public bookmarking',
+    date: 'Mar 18, 2026',
+    excerpt: 'Guidelines we give moderators to keep collections generous, accurate, and kind.',
+    tag: 'Community',
+    author: 'Avery Brooks',
+    readTime: '6 min',
   },
   {
     id: 'blog-3',
-    title: 'Building the Social Bookmarking Hub',
-    date: 'Feb 10, 2026',
-    excerpt: 'A behind-the-scenes look at the new SBM module and its workflows.',
-    tag: 'Product',
-    author: 'Priya Desai',
-    readTime: '5 min'
-  }
+    title: 'Typography tweaks that improved time-on-page',
+    date: 'Mar 4, 2026',
+    excerpt: 'Small type and spacing changes that made long articles easier to finish.',
+    tag: 'Design',
+    author: 'Marcus Chen',
+    readTime: '4 min',
+  },
+  {
+    id: 'blog-4',
+    title: 'How we interview product designers',
+    date: 'Feb 20, 2026',
+    excerpt: 'Take-home scope, critique sessions, and the signals we optimize for beyond the portfolio.',
+    tag: 'Careers',
+    author: 'Sofia Alvarez',
+    readTime: '7 min',
+  },
 ]
 
 export const mockPressCoverage: PressCoverage[] = [
   {
     id: 'press-coverage-1',
     outlet: 'Product Weekly',
-    headline: 'This platform makes link sharing feel premium.',
-    date: 'Mar 2026'
+    headline: 'MotivKit makes curated discovery feel like a magazine, not a spreadsheet.',
+    date: 'Apr 2026',
   },
   {
     id: 'press-coverage-2',
     outlet: 'Design Journal',
-    headline: 'A fresh take on community curation.',
-    date: 'Feb 2026'
+    headline: 'Warm editorial UI meets serious publishing infrastructure.',
+    date: 'Mar 2026',
   },
   {
     id: 'press-coverage-3',
     outlet: 'Tech Today',
-    headline: 'Why teams are switching to this platform.',
-    date: 'Jan 2026'
-  }
+    headline: 'Teams adopt calmer reading surfaces to fight notification fatigue.',
+    date: 'Feb 2026',
+  },
+  {
+    id: 'press-coverage-4',
+    outlet: 'North Star FM',
+    headline: 'Founders discuss building for slow feeds and fast search.',
+    date: 'Jan 2026',
+  },
 ]
