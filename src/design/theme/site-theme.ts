@@ -1,4 +1,4 @@
-import { defineSiteTheme } from '@/config/site.theme.defaults'
+import { defineSiteTheme } from './site-theme.defaults'
 
 export const SITE_THEME = defineSiteTheme({
   shell: 'editorial',
