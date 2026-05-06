@@ -32,57 +32,57 @@ const taskIcons: Record<TaskKey, any> = {
 
 const variantClasses = {
   'compact-bar': {
-    shell: 'border-b border-slate-200/80 bg-white/88 text-slate-950 backdrop-blur-xl',
-    logo: 'rounded-2xl border border-slate-200 bg-white shadow-sm',
-    active: 'bg-slate-950 text-white',
-    idle: 'text-slate-600 hover:bg-slate-100 hover:text-slate-950',
-    cta: 'rounded-full bg-slate-950 text-white hover:bg-slate-800',
-    mobile: 'border-t border-slate-200/70 bg-white/95',
+    shell: 'border-b border-border/70 bg-card/70 text-foreground backdrop-blur-xl shadow-[0_1px_0_rgba(116,69,119,0.05)]',
+    logo: 'rounded-2xl border border-border/60 bg-card/60 shadow-sm',
+    active: 'bg-primary text-primary-foreground',
+    idle: 'text-muted-foreground hover:bg-primary/10 hover:text-foreground',
+    cta: 'rounded-full bg-primary text-primary-foreground hover:bg-primary/90',
+    mobile: 'border-t border-border/70 bg-background/90',
   },
   'editorial-bar': {
-    shell: 'border-b border-[#d7c4b3] bg-[#fff7ee]/90 text-[#2f1d16] backdrop-blur-xl',
-    logo: 'rounded-full border border-[#dbc6b6] bg-white shadow-sm',
-    active: 'bg-[#2f1d16] text-[#fff4e4]',
-    idle: 'text-[#72594a] hover:bg-[#f2e5d4] hover:text-[#2f1d16]',
-    cta: 'rounded-full bg-[#2f1d16] text-[#fff4e4] hover:bg-[#452920]',
-    mobile: 'border-t border-[#dbc6b6] bg-[#fff7ee]',
+    shell: 'border-b border-border/70 bg-card/70 text-foreground backdrop-blur-xl shadow-[0_1px_0_rgba(116,69,119,0.05)]',
+    logo: 'rounded-full border border-border/60 bg-card/60 shadow-sm',
+    active: 'bg-primary text-primary-foreground',
+    idle: 'text-muted-foreground hover:bg-primary/10 hover:text-foreground',
+    cta: 'rounded-full bg-primary text-primary-foreground hover:bg-primary/90',
+    mobile: 'border-t border-border/70 bg-background/90',
   },
   'floating-bar': {
-    shell: 'border-b border-transparent bg-transparent text-white',
-    logo: 'rounded-[1.35rem] border border-white/12 bg-white/8 shadow-[0_16px_48px_rgba(15,23,42,0.22)] backdrop-blur',
-    active: 'bg-[#8df0c8] text-[#07111f]',
-    idle: 'text-slate-200 hover:bg-white/10 hover:text-white',
-    cta: 'rounded-full bg-[#8df0c8] text-[#07111f] hover:bg-[#77dfb8]',
-    mobile: 'border-t border-white/10 bg-[#09101d]/96',
+    shell: 'border-b border-transparent bg-transparent text-foreground',
+    logo: 'rounded-[1.35rem] border border-border/50 bg-background/25 shadow-[0_16px_54px_rgba(116,69,119,0.18)] backdrop-blur',
+    active: 'bg-[rgb(132,197,177)] text-[rgb(18,12,20)]',
+    idle: 'text-foreground/80 hover:bg-primary/10 hover:text-foreground',
+    cta: 'rounded-full bg-[rgb(132,197,177)] text-[rgb(18,12,20)] hover:bg-[rgba(132,197,177,0.92)]',
+    mobile: 'border-t border-border/70 bg-background/90',
   },
   'utility-bar': {
-    shell: 'border-b border-[#d7deca] bg-[#f4f6ef]/94 text-[#1f2617] backdrop-blur-xl',
-    logo: 'rounded-xl border border-[#d7deca] bg-white shadow-sm',
-    active: 'bg-[#1f2617] text-[#edf5dc]',
-    idle: 'text-[#56604b] hover:bg-[#e7edd9] hover:text-[#1f2617]',
-    cta: 'rounded-lg bg-[#1f2617] text-[#edf5dc] hover:bg-[#2f3a24]',
-    mobile: 'border-t border-[#d7deca] bg-[#f4f6ef]',
+    shell: 'border-b border-border/70 bg-card/70 text-foreground backdrop-blur-xl shadow-[0_1px_0_rgba(116,69,119,0.05)]',
+    logo: 'rounded-xl border border-border/60 bg-card/60 shadow-sm',
+    active: 'bg-primary text-primary-foreground',
+    idle: 'text-muted-foreground hover:bg-primary/10 hover:text-foreground',
+    cta: 'rounded-lg bg-primary text-primary-foreground hover:bg-primary/90',
+    mobile: 'border-t border-border/70 bg-background/90',
   },
 } as const
 
 const directoryPalette = {
   'directory-clean': {
-    shell: 'border-b border-slate-200 bg-white/94 text-slate-950 shadow-[0_1px_0_rgba(15,23,42,0.04)] backdrop-blur-xl',
-    logo: 'rounded-2xl border border-slate-200 bg-slate-50',
-    nav: 'text-slate-600 hover:text-slate-950',
-    search: 'border border-slate-200 bg-slate-50 text-slate-600',
-    cta: 'bg-slate-950 text-white hover:bg-slate-800',
-    post: 'border border-slate-200 bg-white text-slate-950 hover:bg-slate-50',
-    mobile: 'border-t border-slate-200 bg-white',
+    shell: 'border-b border-border/70 bg-card/70 text-foreground shadow-[0_1px_0_rgba(116,69,119,0.05)] backdrop-blur-xl',
+    logo: 'rounded-2xl border border-border/60 bg-card/60',
+    nav: 'text-muted-foreground hover:text-foreground',
+    search: 'border border-border/60 bg-background/60 text-muted-foreground',
+    cta: 'bg-primary text-primary-foreground hover:bg-primary/90',
+    post: 'border border-border/60 bg-background/70 text-foreground hover:bg-accent/30',
+    mobile: 'border-t border-border/70 bg-background/90',
   },
   'market-utility': {
-    shell: 'border-b border-[#d7deca] bg-[#f4f6ef]/96 text-[#1f2617] shadow-[0_1px_0_rgba(64,76,34,0.06)] backdrop-blur-xl',
-    logo: 'rounded-xl border border-[#d7deca] bg-white',
-    nav: 'text-[#56604b] hover:text-[#1f2617]',
-    search: 'border border-[#d7deca] bg-white text-[#56604b]',
-    cta: 'bg-[#1f2617] text-[#edf5dc] hover:bg-[#2f3a24]',
-    post: 'border border-[#d7deca] bg-white text-[#1f2617] hover:bg-[#eef2e4]',
-    mobile: 'border-t border-[#d7deca] bg-[#f4f6ef]',
+    shell: 'border-b border-border/70 bg-card/70 text-foreground shadow-[0_1px_0_rgba(116,69,119,0.05)] backdrop-blur-xl',
+    logo: 'rounded-xl border border-border/60 bg-card/60',
+    nav: 'text-muted-foreground hover:text-foreground',
+    search: 'border border-border/60 bg-background/60 text-muted-foreground',
+    cta: 'bg-primary text-primary-foreground hover:bg-primary/90',
+    post: 'border border-border/60 bg-background/70 text-foreground hover:bg-accent/30',
+    mobile: 'border-t border-border/70 bg-background/90',
   },
 } as const
 
@@ -216,16 +216,16 @@ export function Navbar() {
 
           {isEditorial ? (
             <div className="hidden min-w-0 flex-1 items-center gap-4 xl:flex">
-              <div className="h-px flex-1 bg-[#d8c8bb]" />
+              <div className="h-px flex-1 bg-border/70" />
               {primaryNavigation.map((task) => {
                 const isActive = pathname.startsWith(task.route)
                 return (
-                  <Link key={task.key} href={task.route} className={cn('text-sm font-semibold uppercase tracking-[0.18em] transition-colors', isActive ? 'text-[#2f1d16]' : 'text-[#7b6254] hover:text-[#2f1d16]')}>
+                  <Link key={task.key} href={task.route} className={cn('text-sm font-semibold uppercase tracking-[0.18em] transition-colors', isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground')}>
                     {task.label}
                   </Link>
                 )
               })}
-              <div className="h-px flex-1 bg-[#d8c8bb]" />
+              <div className="h-px flex-1 bg-border/70" />
             </div>
           ) : isFloating ? (
             <div className="hidden min-w-0 flex-1 items-center gap-2 xl:flex">

@@ -243,7 +243,7 @@ export async function TaskDetailPage({ task, slug }: { task: TaskKey; slug: stri
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className={`min-h-screen ${isArticle || task === "comment" ? "bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.08),transparent_20%),linear-gradient(180deg,#fff8ef_0%,#ffffff_100%)]" : "bg-background"}`}>
       <NavbarShell />
       <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <SchemaJsonLd data={schemaPayload} />
@@ -262,45 +262,73 @@ export async function TaskDetailPage({ task, slug }: { task: TaskKey; slug: stri
         >
           <div className={cn(isClassified ? "space-y-8" : "")}>
             {isArticle ? (
-              <div className="mx-auto w-full max-w-4xl space-y-6">
-                <h1 className="text-4xl font-semibold leading-tight text-foreground">
-                  {post.title}
-                </h1>
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
-                  <span>By {articleAuthor}</span>
-                  {articleDate ? <span>{articleDate}</span> : null}
-                  <Badge variant="secondary" className="inline-flex items-center gap-1">
-                    <Tag className="h-3.5 w-3.5" />
-                    {category}
-                  </Badge>
-                </div>
-                {postTags.length ? (
-                  <div className="flex flex-wrap gap-2">
-                    {postTags.map((tag) => (
-                      <Badge key={tag} variant="outline">
-                        {tag}
+              <article className="mx-auto w-full max-w-6xl">
+                <header className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
+                  <div className="space-y-6">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                      <Tag className="h-3.5 w-3.5" />
+                      Article
+                    </div>
+
+                    <h1 className="text-5xl font-semibold leading-[1.02] tracking-[-0.05em] text-foreground sm:text-6xl">
+                      {post.title}
+                    </h1>
+
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
+                      <span className="font-medium text-foreground/80">By {articleAuthor}</span>
+                      {articleDate ? <span>{articleDate}</span> : null}
+                      <Badge variant="secondary" className="inline-flex items-center gap-1">
+                        <Tag className="h-3.5 w-3.5" />
+                        {category}
                       </Badge>
-                    ))}
+                    </div>
+
+                    {postTags.length ? (
+                      <div className="flex flex-wrap gap-2">
+                        {postTags.map((tag) => (
+                          <Badge key={tag} variant="outline" className="bg-background/60">
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                    ) : null}
+
+                    {articleSummary ? (
+                      <p className="max-w-2xl text-base leading-8 text-muted-foreground">
+                        {articleSummary}
+                      </p>
+                    ) : null}
                   </div>
-                ) : null}
-                {articleSummary ? (
-                  <p className="text-base leading-7 text-muted-foreground">{articleSummary}</p>
-                ) : null}
-                {images[0] ? (
-                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl border border-border bg-muted">
-                    <ContentImage
-                      src={images[0]}
-                      alt={`${post.title} featured image`}
-                      fill
-                      className="object-cover"
-                      intrinsicWidth={1600}
-                      intrinsicHeight={900}
-                    />
+
+                  {images[0] ? (
+                    <figure className="space-y-2">
+                      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[2.25rem] border border-border bg-muted shadow-[0_24px_70px_rgba(116,69,119,0.14)]">
+                        <ContentImage
+                          src={images[0]}
+                          alt={`${post.title} featured image`}
+                          fill
+                          className="object-cover"
+                          intrinsicWidth={1600}
+                          intrinsicHeight={1200}
+                        />
+                      </div>
+                      <figcaption className="px-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                        Featured image
+                      </figcaption>
+                    </figure>
+                  ) : null}
+                </header>
+
+                <section className="mx-auto mt-12 w-full max-w-2xl">
+                  <div className="rounded-[2rem] border border-border/70 bg-card/75 p-7 shadow-[0_26px_78px_rgba(116,69,119,0.12)] backdrop-blur-sm sm:p-10">
+                    <RichContent html={articleHtml} className="leading-8 prose-p:my-6 prose-h2:my-10 prose-h3:my-7 prose-ul:my-6" />
                   </div>
-                ) : null}
-                <RichContent html={articleHtml} className="leading-8 prose-p:my-6 prose-h2:my-8 prose-h3:my-6 prose-ul:my-6" />
-                <ArticleComments slug={post.slug} />
-              </div>
+
+                  <div className="mt-10 rounded-[2rem] border border-border/70 bg-card/70 p-7 shadow-[0_18px_60px_rgba(116,69,119,0.08)] backdrop-blur-sm sm:p-10">
+                    <ArticleComments slug={post.slug} />
+                  </div>
+                </section>
+              </article>
             ) : null}
 
             {!isArticle ? (

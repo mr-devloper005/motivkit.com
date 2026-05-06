@@ -28,6 +28,7 @@ export default function PressPage() {
     <PageShell
       title="Press & media"
       description="Official storylines, downloadable brand assets, and recent coverage. We respond quickly to fact-checked requests."
+      variant="article"
       actions={
         <Button variant="outline" asChild>
           <Link href="/contact">Request an interview</Link>
