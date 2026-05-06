@@ -97,9 +97,19 @@ export default function ContactPage() {
               <input className="h-12 rounded-xl border border-current/10 bg-transparent px-4 text-sm" placeholder="Your name" />
               <input className="h-12 rounded-xl border border-current/10 bg-transparent px-4 text-sm" placeholder="Email address" />
               <input className="h-12 rounded-xl border border-current/10 bg-transparent px-4 text-sm" placeholder="What do you need help with?" />
-              <textarea className="min-h-[180px] rounded-2xl border border-current/10 bg-transparent px-4 py-3 text-sm" placeholder="Share the full context so we can respond with the right next step." />
+              <textarea className="min-h-[180px] rounded-2xl border border-current/10 bg-transparent px-4 py-3 text-sm" placeholder="Share full context so we can respond with the right next step." />
               <button type="submit" className={`inline-flex h-12 items-center justify-center rounded-full px-6 text-sm font-semibold ${tone.action}`}>Send message</button>
             </form>
+            <div className="mt-6 flex items-center justify-between">
+              <p className={`text-sm ${tone.muted}`}>Or email us directly</p>
+              <a 
+                href={`mailto:${SITE_CONFIG.contact.email}`}
+                className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium border border-current/10 ${tone.action}`}
+              >
+                <Mail className="h-4 w-4" />
+                {SITE_CONFIG.contact.email}
+              </a>
+            </div>
           </div>
         </section>
       </main>

@@ -58,6 +58,7 @@ export default function CareersPage() {
     <PageShell
       title={`Careers at ${SITE_CONFIG.name}`}
       description={`Help us shape the next era of calm, trustworthy publishing. ${SITE_CONFIG.name} is growing deliberately—every hire should raise the bar for craft and kindness.`}
+      variant="article"
       actions={
         <>
           <Button variant="outline" asChild>
