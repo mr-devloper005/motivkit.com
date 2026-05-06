@@ -31,6 +31,10 @@ export type SiteConfig = {
   defaultOgImage: string
   tasks: TaskConfig[]
   taskViews: Partial<Record<TaskKey, string>>
+  contact: {
+    email: string
+    support: string
+  }
   seo: {
     title: string
     titleTemplate: string
@@ -48,6 +52,10 @@ export const SITE_CONFIG: SiteConfig = {
   defaultOgImage: siteIdentity.ogImage,
   tasks: siteTaskDefinitions.map((task) => ({ ...task })),
   taskViews: { ...siteTaskViews },
+  contact: {
+    email: 'contact@motivkit.com',
+    support: 'support@motivkit.com',
+  },
   seo: {
     title: `${siteIdentity.name} - ${siteIdentity.tagline}`,
     titleTemplate: `%s | ${siteIdentity.name}`,

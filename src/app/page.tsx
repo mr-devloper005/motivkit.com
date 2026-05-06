@@ -72,68 +72,60 @@ function getPostMeta(post?: SitePost | null) {
 }
 
 function getDirectoryTone(brandPack: string) {
-  if (brandPack === 'market-utility') {
-    return {
-      shell: 'bg-[#f5f7f1] text-[#1f2617]',
-      hero: 'bg-[linear-gradient(180deg,#eef4e4_0%,#f8faf4_100%)]',
-      panel: 'border border-[#d5ddc8] bg-white shadow-[0_24px_64px_rgba(64,76,34,0.08)]',
-      soft: 'border border-[#d5ddc8] bg-[#eff3e7]',
-      muted: 'text-[#5b664c]',
-      title: 'text-[#1f2617]',
-      badge: 'bg-[#1f2617] text-[#edf5dc]',
-      action: 'bg-[#1f2617] text-[#edf5dc] hover:bg-[#2f3a24]',
-      actionAlt: 'border border-[#d5ddc8] bg-white text-[#1f2617] hover:bg-[#eef3e7]',
-    }
-  }
+  void brandPack
   return {
-    shell: 'bg-[#f8fbff] text-slate-950',
-    hero: 'bg-[linear-gradient(180deg,#eef6ff_0%,#ffffff_100%)]',
-    panel: 'border border-slate-200 bg-white shadow-[0_24px_64px_rgba(15,23,42,0.08)]',
-    soft: 'border border-slate-200 bg-slate-50',
-    muted: 'text-slate-600',
-    title: 'text-slate-950',
-    badge: 'bg-slate-950 text-white',
-    action: 'bg-slate-950 text-white hover:bg-slate-800',
-    actionAlt: 'border border-slate-200 bg-white text-slate-950 hover:bg-slate-100',
+    shell: 'bg-transparent text-foreground',
+    hero: 'bg-transparent',
+    panel:
+      'border border-border/70 bg-card/75 backdrop-blur-sm shadow-[0_28px_84px_rgba(116,69,119,0.16)]',
+    soft: 'border border-border/60 bg-card/55',
+    muted: 'text-muted-foreground',
+    title: 'text-foreground',
+    badge: 'bg-primary text-primary-foreground',
+    action: 'bg-primary text-primary-foreground hover:bg-primary/90',
+    actionAlt: 'border border-border bg-background/70 text-foreground hover:bg-accent/35',
   }
 }
 
 function getEditorialTone() {
   return {
-    shell: 'bg-[#fbf6ee] text-[#241711]',
-    panel: 'border border-[#dcc8b7] bg-[#fffdfa] shadow-[0_24px_60px_rgba(77,47,27,0.08)]',
-    soft: 'border border-[#e6d6c8] bg-[#fff4e8]',
-    muted: 'text-[#6e5547]',
-    title: 'text-[#241711]',
-    badge: 'bg-[#241711] text-[#fff1e2]',
-    action: 'bg-[#241711] text-[#fff1e2] hover:bg-[#3a241b]',
-    actionAlt: 'border border-[#dcc8b7] bg-transparent text-[#241711] hover:bg-[#f5e7d7]',
+    shell: 'bg-transparent text-foreground',
+    panel:
+      'border border-border/70 bg-card/80 backdrop-blur-sm shadow-[0_26px_76px_rgba(116,69,119,0.14)]',
+    soft: 'border border-border/60 bg-card/55',
+    muted: 'text-muted-foreground',
+    title: 'text-foreground',
+    badge: 'bg-primary text-primary-foreground',
+    action: 'bg-primary text-primary-foreground hover:bg-primary/90',
+    actionAlt: 'border border-border bg-background/70 text-foreground hover:bg-accent/35',
   }
 }
 
 function getVisualTone() {
   return {
-    shell: 'bg-[#07101f] text-white',
-    panel: 'border border-white/10 bg-[rgba(11,18,31,0.78)] shadow-[0_28px_80px_rgba(0,0,0,0.35)]',
+    shell: 'bg-[rgb(18,12,20)] text-[rgb(248,244,220)]',
+    panel:
+      'border border-white/10 bg-[rgba(28,18,32,0.76)] backdrop-blur-sm shadow-[0_28px_90px_rgba(0,0,0,0.42)]',
     soft: 'border border-white/10 bg-white/6',
-    muted: 'text-slate-300',
-    title: 'text-white',
-    badge: 'bg-[#8df0c8] text-[#07111f]',
-    action: 'bg-[#8df0c8] text-[#07111f] hover:bg-[#77dfb8]',
-    actionAlt: 'border border-white/10 bg-white/6 text-white hover:bg-white/10',
+    muted: 'text-white/70',
+    title: 'text-[rgb(248,244,220)]',
+    badge: 'bg-[rgb(132,197,177)] text-[rgb(18,12,20)]',
+    action: 'bg-[rgb(132,197,177)] text-[rgb(18,12,20)] hover:bg-[rgba(132,197,177,0.92)]',
+    actionAlt: 'border border-white/10 bg-white/6 text-[rgb(248,244,220)] hover:bg-white/10',
   }
 }
 
 function getCurationTone() {
   return {
-    shell: 'bg-[#f7f1ea] text-[#261811]',
-    panel: 'border border-[#ddcdbd] bg-[#fffaf4] shadow-[0_24px_60px_rgba(91,56,37,0.08)]',
-    soft: 'border border-[#e8dbce] bg-[#f3e8db]',
-    muted: 'text-[#71574a]',
-    title: 'text-[#261811]',
-    badge: 'bg-[#5b2b3b] text-[#fff0f5]',
-    action: 'bg-[#5b2b3b] text-[#fff0f5] hover:bg-[#74364b]',
-    actionAlt: 'border border-[#ddcdbd] bg-transparent text-[#261811] hover:bg-[#efe3d6]',
+    shell: 'bg-transparent text-foreground',
+    panel:
+      'border border-border/70 bg-card/80 backdrop-blur-sm shadow-[0_26px_76px_rgba(116,69,119,0.14)]',
+    soft: 'border border-border/60 bg-card/55',
+    muted: 'text-muted-foreground',
+    title: 'text-foreground',
+    badge: 'bg-primary text-primary-foreground',
+    action: 'bg-primary text-primary-foreground hover:bg-primary/90',
+    actionAlt: 'border border-border bg-background/70 text-foreground hover:bg-accent/35',
   }
 }
 
@@ -166,8 +158,8 @@ function DirectoryHome({ primaryTask, enabledTasks, listingPosts, classifiedPost
               <p className={`mt-6 max-w-2xl text-base leading-8 ${tone.muted}`}>{SITE_CONFIG.description}</p>
 
               <div className={`mt-8 grid gap-3 rounded-[2rem] p-4 ${tone.panel} md:grid-cols-[1.25fr_0.8fr_auto]`}>
-                <div className="rounded-full bg-black/5 px-4 py-3 text-sm">What do you need today?</div>
-                <div className="rounded-full bg-black/5 px-4 py-3 text-sm">Choose area or city</div>
+                <div className="rounded-full bg-primary/10 px-4 py-3 text-sm text-foreground/90">What do you need today?</div>
+                <div className="rounded-full bg-primary/10 px-4 py-3 text-sm text-foreground/90">Choose area or city</div>
                 <Link href={primaryTask?.route || '/listings'} className={`inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold ${tone.action}`}>
                   Browse now
                   <ArrowRight className="h-4 w-4" />
@@ -516,7 +508,7 @@ export default async function HomePage() {
   ]
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.08),transparent_20%),linear-gradient(180deg,#fff8ef_0%,#ffffff_100%)] text-foreground">
       <NavbarShell />
       <SchemaJsonLd data={schemaData} />
       {productKind === 'directory' ? (

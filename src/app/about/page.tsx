@@ -53,15 +53,11 @@ export default function AboutPage() {
     <PageShell
       title={`The ${SITE_CONFIG.name} story`}
       description="We are building a modern reading and discovery platform where long-form work gets the respect it deserves—and where businesses can show up without shouting."
+      variant="article"
       actions={
-        <>
-          <Button variant="outline" asChild>
-            <Link href="/team">Meet the team</Link>
-          </Button>
-          <Button asChild>
-            <Link href="/press">Press room</Link>
-          </Button>
-        </>
+        <Button asChild>
+          <Link href="/press">Press room</Link>
+        </Button>
       }
     >
       <div className="grid gap-8 lg:grid-cols-[1fr_1.05fr] lg:items-start">
