@@ -12,7 +12,15 @@ export const generateMetadata = () =>
     description: taskPageMetadata.article.description,
   });
 
-export default async function ArticlesPage({ searchParams }: { searchParams?: Promise<{ category?: string }> }) {
-  const { category } = await searchParams || {};
-  return <TaskListPage task="article" category={category} leading={<ArticlesMagazineLead />} />;
+type ArticlesPageProps = {
+  searchParams?: Promise<{ category?: string | string[] }>;
+};
+
+export default async function ArticlesPage({ searchParams }: ArticlesPageProps) {
+  const resolvedSearchParams = (await searchParams) ?? {};
+  const category = Array.isArray(resolvedSearchParams.category)
+    ? resolvedSearchParams.category[0]
+    : resolvedSearchParams.category;
+
+  return <TaskListPage task="article" category={category} leading={<ArticlesMagazineLead selectedCategory={category} />} />;
 }

@@ -5,7 +5,7 @@ import { SITE_CONFIG } from '@/lib/site-config'
 
 const spotlightTopics = CATEGORY_OPTIONS.slice(0, 8)
 
-export function ArticlesMagazineLead() {
+export function ArticlesMagazineLead({ selectedCategory }: { selectedCategory?: string }) {
   return (
     <section className="mb-12 space-y-10">
       <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
@@ -64,7 +64,7 @@ export function ArticlesMagazineLead() {
           <form className="flex w-full max-w-md items-center gap-2 sm:w-auto" action="/articles">
             <select
               name="category"
-              defaultValue="all"
+              defaultValue={selectedCategory || "all"}
               className="h-11 flex-1 rounded-xl border border-[#dbc6b6] bg-white px-3 text-sm text-[#2f1d16]"
             >
               <option value="all">All categories</option>
