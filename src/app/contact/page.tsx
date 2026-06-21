@@ -95,16 +95,6 @@ export default function ContactPage() {
           <div className={`rounded-[2rem] p-7 ${tone.panel}`}>
             <h2 className="text-2xl font-semibold">Send a message</h2>
             <ContactLeadForm />
-            <div className="mt-6 flex items-center justify-between">
-              <p className={`text-sm ${tone.muted}`}>Or email us directly</p>
-              <a 
-                href={`mailto:${SITE_CONFIG.contact.email}`}
-                className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium border border-current/10 ${tone.action}`}
-              >
-                <Mail className="h-4 w-4" />
-                {SITE_CONFIG.contact.email}
-              </a>
-            </div>
           </div>
         </section>
       </main>
