@@ -56,7 +56,7 @@ export default function AboutPage() {
       variant="article"
       actions={
         <Button asChild>
-          <Link href="/press">Press room</Link>
+          
         </Button>
       }
     >
@@ -77,7 +77,7 @@ export default function AboutPage() {
               depth. Our roadmap is public enough to be honest, and private enough to protect the craft.
             </p>
             <Button variant="outline" asChild className="mt-2 w-fit">
-              <Link href="/blog">Read our latest notes</Link>
+             
             </Button>
           </CardContent>
         </Card>
